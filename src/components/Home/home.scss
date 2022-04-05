@@ -1,0 +1,409 @@
+:root {
+  --left-bg-color: rgba(84, 124, 236, 0.447);
+  --right-bg-color: rgba(243, 135, 135, 0.184);
+  --left-btn-hover-color: rgba(87, 84, 236, 1);
+  --right-btn-hover-color: rgba(28, 122, 28, 1);
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1000ms;
+}
+.container-loader {
+  position: absolute;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  background-color: #111;
+  .box-animation {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 500px;
+  }
+  .wrapper-spinner {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container-ligthsaber {
+    width: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 60px 40px #29aeeb71;
+    border-radius: 50%;
+    z-index: 999;
+    .star-wars-text {
+      width: 200px;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: -1;
+      img {
+        width: 100%;
+        opacity: 0.3;
+        transform: rotate(0deg);
+      }
+    }
+    img {
+      width: 230px;
+
+      transform: rotate(-58.6deg);
+    }
+  }
+}
+
+.container {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #111;
+}
+.split {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+.split.left {
+  left: 0;
+
+  background-image: url("../../assets/rey.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 80%;
+  transition: 1000ms;
+  transition: opacity 1000ms ease-in;
+  transition-property: width;
+  height: 100%;
+}
+.split.left:hover {
+  content: "";
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+  transition: all var(--speed) ease-in-out;
+}
+.split.right:hover {
+  content: "";
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+  transition: all var(--speed) ease-in-out;
+}
+.split.left::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--left-bg-color);
+  transition: all var(--speed) ease-in-out;
+}
+.split.right {
+  right: 0;
+  background-image: url("../../assets/kyllo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 14%;
+  transition: all var(--speed) ease-in-out;
+}
+
+.split.right::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--right-bg-color);
+  transition: all var(--speed) ease-in-out;
+}
+.btn1 {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  top: 40%;
+  transform: translateX(-50%);
+  text-decoration: none;
+  color: #fff;
+  border: #fff solid 0.2rem;
+  width: 15rem;
+  font-weight: bold;
+  padding: 1.5rem;
+  text-transform: uppercase;
+}
+
+.split.right,
+.split.left,
+.split.right::before,
+.split.left::before {
+  // transition: all var(--speed) ease-in-out;
+}
+// .hover-left .left {
+//   width: var(--hover-width);
+// }
+// .hover-left .right {
+//   width: var(--other-width);
+// }
+
+// .hover-right .right {
+//   width: var(--hover-width);
+// }
+// .hover-right .left {
+//   width: var(--other-width);
+// }
+
+//texts
+.container-button-links {
+  margin: 0;
+  text-transform: uppercase;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    font-size: 2.6rem;
+    color: #fff;
+    left: 50%;
+  }
+  p {
+    color: #fff;
+    margin-top: 10px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+}
+//progress bar
+.wrapper-buttons {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  align-items: center;
+  top: 170px;
+  height: 3px;
+  width: 600px;
+  margin-bottom: 20px;
+}
+.progress-buttons {
+  background-color: rgb(165, 165, 165);
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+  margin-top: 80px;
+  height: 3px;
+  width: 600px;
+  margin-bottom: 20px;
+}
+.progress-buttons::before {
+  content: "";
+  background-color: rgb(165, 165, 165);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: 0;
+}
+//progress 1
+.progress-active {
+  content: "";
+  background-image: linear-gradient(
+    to right,
+    rgb(168, 168, 168) 50%,
+    rgb(233, 4, 4) 40%
+  );
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+  margin-top: 80px;
+  transform: translateY(-50%);
+  transition: all 10s;
+  height: 3px;
+  left: 0;
+  width: 100%;
+  margin-bottom: 20px;
+}
+//progress 2
+.progress-active2 {
+  content: "";
+  background-image: linear-gradient(
+    to left,
+    rgb(168, 168, 168) 50%,
+    rgb(4, 50, 233) 40%
+  );
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+  margin-top: 80px;
+  transform: translateY(-50%);
+  height: 3px;
+  left: 0;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.progress-active3 {
+  content: "";
+  background-color: rgb(160, 0, 59);
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+  margin-top: 80px;
+  transform: translateY(-50%);
+  height: 3px;
+  left: 0;
+  width: 100%;
+  margin-bottom: 20px;
+}
+//ligth btn
+.button.light-side {
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 55px;
+  background: rgba(46, 67, 125, 0.97);
+  position: relative;
+  border: 0;
+  cursor: pointer;
+}
+.button.light-side:before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 25px solid rgba(46, 67, 125, 0.97);
+}
+.button.light-side:after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 25px solid rgba(46, 67, 125, 0.97);
+}
+//dark btn
+.button.dark-side {
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 55px;
+  background: rgba(142, 45, 45, 0.964);
+  position: relative;
+  border: 0;
+  cursor: pointer;
+}
+.button.dark-side:before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 25px solid rgba(142, 45, 45, 0.964);
+}
+.button.dark-side:after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 25px solid rgba(142, 45, 45, 0.964);
+}
+//default
+.button.default-side {
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 55px;
+  background: rgba(218, 218, 218, 0.982);
+  position: relative;
+  border: 0;
+  cursor: pointer;
+}
+.button.default-side:before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 25px solid rgba(218, 218, 218, 0.982);
+}
+.button.default-side:after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 25px solid rgba(218, 218, 218, 0.982);
+}
+.header-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  top: 20px;
+  position: absolute;
+  text-transform: uppercase;
+  width: 100%;
+  p {
+    font-size: 13px;
+  }
+  span {
+    font-weight: bold;
+    font-size: 20px;
+  }
+}
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2rem;
+    top: 30%;
+  }
+  .btn {
+    padding: 1, 2rem;
+    width: 12rem;
+  }
+}
